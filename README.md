@@ -1,7 +1,7 @@
 Original App Design Project - README Template
 ===
 
-# The Boring 
+# The Boring App
 
 ## Table of Contents
 1. [Overview](#Overview)
