@@ -112,10 +112,60 @@ Mobile app for planning events that cater to the needs, budgets, and availabilit
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+Model: User
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | Username      | String   | Name to display when user posts something|
+   | Password      | String   | Required for user to login |
+   | Profile pic   | File     | Image for user's profile |
+   | objectID       | String   | Unique value the server binds to user |
+   | Friends List  | MutableList<User>   | List of users that stores all of their friends |
+   | createdAt     | DateTime | date when the user created their account |
+   
+Model: Activity
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | Activity      | String   | Description of the queried activity|
+   | Type          | String   | Type of the activity ["education",                                           "recreational", "social", "diy", "charity",                                   "cooking", "relaxation","music", "busywork"]|
+   | Participants  | Int      | The number of people that this activity could                                 involve [0, n]|
+   | Price Range   | Double   | A factor describing the cost of the event                                     with zero being free [0, 1] |
+   | Link          | String   | number of comments that has been posted to an                                 image |
+   | Key           | String   | number of likes for the post |
+   | Accessibility | Int      | A factor describing how possible an event is                                 to do with zero being the most accessible                                     [0.0, 1.0] |
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+- Login:
+    - (Read/GET) Compare input against database of username/password combinations
+
+- Register:
+    - (Create/POST) Create new User object in the database with the corresponding password
+
+- Main feed:
+    - (Read/GET) fetching data from TheBored API. 
+
+- Search Screen:
+    - (Read/GET) Query BoredAPI for list of Activities matching search parameters to display in main
+
+- Detailed Activity:
+    - (Read/GET) The categories of each activity like price, accessibility, image etc.
+
+- Friends List:
+    - (Read/GET) Display a list of friends
+    - (Create/POST) Add a friend
+    - (Delete) Remove a friend
+
+- Profile:
+    - (Read/GET) Display user’s name, profile image, and description
+    - (Update) Change the user’s profile image
+    - (Update) Update the profile description
+
+    
+### Endpoints
+   | HTTP Verb | Endpoints         | Description      |
+   | ----------| ------------------| ------------     |
+   | GET       | ?type=:input_type | Get activity of a certain type|
+   | GET       | ?participants=:participants| Find activity with a certain number of participants |
+   | GET       | nothing after the base url     | Get a random activity |
+   | GET       | ?price=input_price   | Get activity that is at a certain “expense level” |
+   | GET       | ?accessibility=:accessibility   | Find an activity with a specified accessibility |
