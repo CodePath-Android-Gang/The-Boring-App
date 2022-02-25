@@ -17,8 +17,8 @@ class BoredActivity {
             val activity = BoredActivity()
             activity.title = jsonObject.getString("activity")
             activity.type = jsonObject.getString("type")
-            activity.accessibility = jsonObject.getDouble("accessibility") * 10
-            activity.price = jsonObject.getDouble("price") * 10
+            activity.accessibility = jsonObject.getDouble("accessibility")
+            activity.price = jsonObject.getDouble("price")
             activity.participants = jsonObject.getInt("participants")
             activity.link = jsonObject.getString("link")
             activity.key = jsonObject.getString("key")

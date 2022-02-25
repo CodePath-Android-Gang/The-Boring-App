@@ -37,9 +37,9 @@ class ActivitiesAdapter(val activities: List<BoredActivity>) : RecyclerView.Adap
 
         fun bind(activity: BoredActivity) {
             tvActivity.text = activity.title
-            tvAccessibility.text = activity.accessibility.toString() + " / 10"
+            tvAccessibility.text = activity.accessibility.toString()
             tvType.text = activity.type
-            tvPrice.text = activity.price.toString() + " / 10"
+            tvPrice.text = activity.price.toString()
             tvParticipants.text = activity.participants.toString()
             tvLink.text = activity.link
             if(activity.link == "") {

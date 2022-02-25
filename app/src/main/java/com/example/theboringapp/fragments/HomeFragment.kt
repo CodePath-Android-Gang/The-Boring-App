@@ -22,6 +22,7 @@ class HomeFragment : Fragment() {
     lateinit var rvActivities: RecyclerView
     lateinit var adapter: ActivitiesAdapter
     val activities = ArrayList<BoredActivity>()
+    val keys= mutableSetOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,8 +41,8 @@ class HomeFragment : Fragment() {
         rvActivities.layoutManager = LinearLayoutManager(requireContext())
         rvActivities.adapter = adapter
 
-        for(i in 1 .. 10)
-            addActivity("")
+        for(i in 1 .. 50)
+            addActivity("?type=recreational")
     }
 
     fun addActivity(filter: String = "") {
@@ -61,6 +62,11 @@ class HomeFragment : Fragment() {
             override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON) {
                 Log.i(TAG, "On Success: $json")
                 activity = BoredActivity.fromJson(json.jsonObject)
+                if(keys.contains(activity.key)) {
+                    return
+                }
+
+                keys.add(activity.key)
                 activities.add(activity)
                 adapter.notifyDataSetChanged()
             }
