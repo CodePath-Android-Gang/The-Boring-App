@@ -26,13 +26,13 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val user = ParseUser()
+        val user = ParseUser.getCurrentUser()
 
         val tvUsername = view.findViewById<TextView>(R.id.tvUsername)
         val ivProfilePic = view.findViewById<ImageView>(R.id.ivProfilePic)
         val tvDescription = view.findViewById<TextView>(R.id.tvDescription)
 
-        Glide.with(this).load(user.getParseFile("username")?.url).into(ivProfilePic)
+        Glide.with(this).load(user.getParseFile("profilePic")?.url).into(ivProfilePic)
         tvUsername.text = user.getString("username")
         tvDescription.text = user.getString("description")
     }
