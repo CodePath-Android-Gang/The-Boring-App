@@ -29,6 +29,9 @@ Mobile app for planning events that cater to the needs, budgets, and availabilit
 
 ## Product Spec
 
+## Sprint 1 gif
+<img src='sprint1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
