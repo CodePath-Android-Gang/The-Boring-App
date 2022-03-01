@@ -1,5 +1,6 @@
 package com.example.theboringapp.fragments
 
+import android.content.Intent.getIntent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
@@ -41,15 +43,26 @@ class HomeFragment : Fragment() {
         rvActivities.layoutManager = LinearLayoutManager(requireContext())
         rvActivities.adapter = adapter
 
+        //val filter = getIntent().getStringExtra("filter")
+        val bundle: Bundle? = this.arguments
+        val filter: String = bundle?.getString("filter").toString()
+        val url: String
+        if(filter == "null") {
+            url = BORED_URL
+        } else {
+            url = BORED_URL+filter
+        }
+
+        // populate up to 50 activities
         for(i in 1 .. 50)
-            addActivity("?type=recreational")
+            addActivity(url)
     }
 
-    fun addActivity(filter: String = "") {
+    fun addActivity(url: String) {
         val client = AsyncHttpClient()
         var activity: BoredActivity
 
-        client.get(BORED_URL+filter, object: JsonHttpResponseHandler() {
+        client.get(url, object: JsonHttpResponseHandler() {
             override fun onFailure(
                 statusCode: Int,
                 headers: Headers?,

@@ -2,6 +2,7 @@ package com.example.theboringapp.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.EditText
 import com.example.theboringapp.BoredActivity
 import com.example.theboringapp.MainActivity
 import com.example.theboringapp.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SearchFragment : Fragment() {
 
@@ -26,19 +28,68 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Set onClickListener for search submit and random buttons
         view.findViewById<Button>(R.id.submitBtn).setOnClickListener{
-          /*  val participant = view.findViewById<EditText>(R.id.etParticipant)
-            val price = view.findViewById<EditText>(R.id.etPrice)
+            val participants = view.findViewById<EditText>(R.id.etParticipant).text.toString()
+            val price = view.findViewById<EditText>(R.id.etPrice).text.toString()
             val type = view.findViewById<EditText>(R.id.etType).text.toString()
-            val accessibility = view.findViewById<EditText>(R.id.etAccessibility)
+            val accessibility = view.findViewById<EditText>(R.id.etAccessibility).text.toString()
 
-            goToMainActivity()*/
+            var hasFilter: Boolean = false
+            var filter: String = ""
+
+            if(type != "") {
+                hasFilter = true
+                filter = "?"
+                filter += "type=$type"
+            }
+
+            if(participants != "") {
+                if(!hasFilter) {
+                    hasFilter = true
+                    filter = "?"
+                } else {
+                    filter += "&"
+                }
+                filter += "participants=$participants"
+            }
+
+            if(price != "") {
+                if(!hasFilter) {
+                    hasFilter = true
+                    filter = "?"
+                } else {
+                    filter += "&"
+                }
+                filter += "price=$price"
+            }
+
+            if(accessibility != "") {
+                if(!hasFilter) {
+                    hasFilter = true
+                    filter = "?"
+                } else {
+                    filter += "&"
+                }
+                filter += "accessibility=$accessibility"
+            }
+
+            Log.i("SearchFragment", filter)
+            goToMainFragment(filter)
+        }
+
+        view.findViewById<Button>(R.id.randomBtn).setOnClickListener{
+            goToMainFragment("")
         }
     }
-    /*private fun goToMainActivity(){
-        val intent = Intent(context, MainActivity::class.java)
-
-        startActivity(intent)
-    }*/
+    private fun goToMainFragment(filter: String){
+        val fragment = HomeFragment()
+        val fragmentTransaction = requireFragmentManager().beginTransaction()
+        val bundle = Bundle()
+        bundle.putString("filter", filter)
+        fragment.arguments = bundle
+        fragmentTransaction.replace(R.id.flContainer, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
 
 
 }
