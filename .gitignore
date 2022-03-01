@@ -7,7 +7,7 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-.*strings.xml
+*.strings.xml
 .DS_Store
 /build
 /captures
