@@ -3,6 +3,7 @@ package com.example.theboringapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +21,11 @@ class ActivitiesAdapter(val activities: List<BoredActivity>) : RecyclerView.Adap
     override fun onBindViewHolder(holder: ActivitiesAdapter.ViewHolder, position: Int) {
         val activity: BoredActivity = activities[position]
 
+        holder.itemView.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.activity_animation)
+
         holder.bind(activity)
+
     }
 
     override fun getItemCount(): Int {

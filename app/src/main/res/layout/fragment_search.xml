@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".fragments.SearchFragment">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Random!"
+        android:textColor="#F4F4F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction" />
@@ -22,9 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="18dp"
         android:gravity="top|center"
-        android:textStyle="bold"
         android:text="Enter Your Preferences"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#474747"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,9 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="40dp"
+        android:text="Participants: "
+        android:textColor="#F4F4F4"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="Participants: "
         app:layout_constraintEnd_toStartOf="@+id/etParticipant"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/randomBtn" />
@@ -47,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Price: "
+        android:textColor="#F4F4F4"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/etParticipant"
@@ -60,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Type: "
+        android:textColor="#F4F4F4"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/etParticipant"
@@ -73,6 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Accessibility: "
+        android:textColor="#F4F4F4"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/etParticipant"
@@ -134,6 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="40dp"
         android:text="Submit"
+        android:textColor="#F4F4F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etAccessibility" />
