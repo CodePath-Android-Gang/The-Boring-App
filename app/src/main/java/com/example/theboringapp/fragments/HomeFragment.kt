@@ -18,7 +18,7 @@ import com.example.theboringapp.BoredActivity
 import com.example.theboringapp.R
 import okhttp3.Headers
 
-private const val TAG = "HomeFragment"
+const val TAG = "HomeFragment"
 private const val BORED_URL = "https://www.boredapi.com/api/activity/"
 class HomeFragment : Fragment() {
     lateinit var rvActivities: RecyclerView

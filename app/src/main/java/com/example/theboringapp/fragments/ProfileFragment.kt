@@ -2,19 +2,17 @@ package com.example.theboringapp.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.bumptech.glide.Glide
 import com.example.theboringapp.LoginActivity
 import com.example.theboringapp.R
+import com.parse.*
 import java.io.File
-import com.parse.ParseFile
-import com.parse.ParseUser
 
 class ProfileFragment : Fragment() {
 
@@ -44,6 +42,31 @@ class ProfileFragment : Fragment() {
             val intent = Intent(context, LoginActivity::class.java)
             startActivity(intent)
             activity?.finish()
+        }
+
+        view.findViewById<Button>(R.id.addUserBtn).setOnClickListener {
+            val friendName = view.findViewById<EditText>(R.id.addUserText).text.toString()
+            lateinit var objId : ParseUser
+            val CurUser = ParseUser.getCurrentUser()
+            val query: ParseQuery<ParseUser> = ParseUser.getQuery()
+            query.whereEqualTo("username", friendName)
+            query.findInBackground(object: FindCallback<ParseUser> {
+                override fun done(users: MutableList<ParseUser>?, e: ParseException?) {
+                    if (e != null) {
+                        Log.e(FriendFragment.TAG, "Error fetching users")
+                    } else {
+                        if (users != null) {
+                            for (user in users) {
+                                Log.i(FriendFragment.TAG, "found user: "+ user.username)
+                                objId = user
+                                Toast.makeText(requireContext(), "User added to friends list!", Toast.LENGTH_SHORT).show()
+                                CurUser.addUnique("friendsList", objId.getString("username"))
+                                CurUser.saveInBackground()
+                            }
+                        }
+                    }
+                }
+            })
         }
     }
 }
