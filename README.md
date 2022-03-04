@@ -40,22 +40,22 @@ Mobile app for planning events that cater to the needs, budgets, and availabilit
 **Required Must-have Stories**
 
 
-* Show a list of activities users that they can do in home screen
-* User must be able to see information about activities (price, type, accessibility, etc)
-* A login screen which requires a username and password
-* A register screen that users can sign up
-* A navigation bar to switch betweens screen
+- [X] Show a list of activities users that they can do in home screen
+- [X] User must be able to see information about activities (price, type, accessibility, etc)
+- [X] A login screen which requires a username and password
+- [X] A register screen that users can sign up
+- [X] A navigation bar to switch betweens screen
 
 **Optional Nice-to-have Stories**
-* Users must be able to add friends to their account
-* Users can filter activities by price, number of participants, type, accessibility, etc.
-* User can enter a type of activity they are interested in and get a list of related activities in that category
-* Users can add activities to database
-* Users can get a random activity
-* Ability to see your friends' searched activities
-* Users should have a profile that shows
-    * Preferred activity type
-    * Preferred price range
+- [X] Users must be able to add friends to their account
+- [X] Users can filter activities by price, number of participants, type, accessibility, etc.
+- [X] User can enter a type of activity they are interested in and get a list of related activities in that category
+- [X] Users can add activities to database
+- [X] Users can get a random activity
+- [ ] Ability to see your friends' searched activities
+- [X] Users should have a profile that shows
+    - [ ] Preferred activity type
+    - [ ] Preferred price range
 
 ### 2. Screen Archetypes
 
