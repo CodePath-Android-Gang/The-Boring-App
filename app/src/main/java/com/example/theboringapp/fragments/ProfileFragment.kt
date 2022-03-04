@@ -63,6 +63,8 @@ class ProfileFragment : Fragment() {
                                 CurUser.addUnique("friendsList", objId.getString("username"))
                                 CurUser.saveInBackground()
                             }
+                        } else {
+                            Toast.makeText(requireContext(), "Invalid User", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
