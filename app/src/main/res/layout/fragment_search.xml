@@ -111,15 +111,14 @@
         app:layout_constraintLeft_toRightOf="@id/tvPrice"
         app:layout_constraintTop_toBottomOf="@+id/etParticipant" />
 
-    <EditText
-        android:id="@+id/etType"
+    <Spinner
+        android:id="@+id/drop_downType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="84dp"
         android:layout_marginTop="20dp"
+        android:spinnerMode="dropdown"
         android:ems="10"
-        android:hint="Scale of 0 - 0.1"
-        android:maxLines="1"
         app:layout_constraintLeft_toRightOf="@id/tvType"
         app:layout_constraintTop_toBottomOf="@+id/etPrice" />
 
@@ -133,7 +132,7 @@
         android:hint="Scale of 0 - 0.1"
         android:maxLines="1"
         app:layout_constraintLeft_toRightOf="@id/tvAccessibility"
-        app:layout_constraintTop_toBottomOf="@+id/etType" />
+        app:layout_constraintTop_toBottomOf="@+id/drop_downType" />
 
     <Button
         android:id="@+id/submitBtn"
