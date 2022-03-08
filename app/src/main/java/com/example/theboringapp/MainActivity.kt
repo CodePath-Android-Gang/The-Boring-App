@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
             item->
             when(item.itemId)
             {
-                R.id.action_home->{
-                    fragmentToShow = HomeFragment()
-                }
+//                R.id.action_home->{
+//                    fragmentToShow = HomeFragment()
+//                }
                 R.id.action_search->{
                     fragmentToShow = SearchFragment()
                 }
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
         //Show which fragment show first
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = R.id.action_home
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = R.id.action_search
 
     }
 }

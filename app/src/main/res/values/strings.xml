@@ -7,4 +7,17 @@
     <!-- Paste BOTH strings as required -->
     <string name="back4app_app_id">iqIeNMPjPzIJY2hxUDjTFEQTQadC74eosRe8qozo</string>
     <string name="back4app_client_key">A8zrLXvyPQMrrxdrnibrw7T38epNWXjDq2fmlcWg</string>
+
+    <string-array name="types_array">
+        <item>Any</item>
+        <item>education</item>
+        <item>recreational</item>
+        <item>social</item>
+        <item>diy</item>
+        <item>charity</item>
+        <item>cooking</item>
+        <item>relaxation</item>
+        <item>music</item>
+        <item>busywork</item>
+    </string-array>
 </resources>
