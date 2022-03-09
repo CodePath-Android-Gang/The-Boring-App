@@ -74,6 +74,10 @@ class HomeFragment : Fragment() {
 
             override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON) {
                 Log.i(TAG, "On Success: $json")
+                if(json.jsonObject.has("error")) {
+                    Toast.makeText(context, "No activities found", Toast.LENGTH_SHORT).show()
+                    return
+                }
                 activity = BoredActivity.fromJson(json.jsonObject)
                 if(keys.contains(activity.key)) {
                     return

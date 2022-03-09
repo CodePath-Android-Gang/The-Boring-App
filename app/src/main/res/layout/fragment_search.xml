@@ -7,24 +7,14 @@
     android:background="@color/primary_color"
     tools:context=".fragments.SearchFragment">
 
-    <Button
-        android:id="@+id/randomBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Random!"
-        android:textColor="#F4F4F4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction" />
-
     <TextView
         android:id="@+id/instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="18dp"
         android:gravity="top|center"
-        android:text="Enter Your Preferences"
+        android:text="Search Activities"
+        android:textSize="32sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#474747"
         android:textStyle="bold"
@@ -33,106 +23,176 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvParticipant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:text="Participants: "
-        android:textColor="#F4F4F4"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/etParticipant"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/randomBtn" />
-
-    <TextView
-        android:id="@+id/tvPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Price: "
-        android:textColor="#F4F4F4"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/etParticipant"
-        app:layout_constraintHorizontal_bias="0.325"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvParticipant" />
-
-    <TextView
         android:id="@+id/tvType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
         android:text="Type: "
         android:textColor="#F4F4F4"
-        android:textSize="20dp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/etParticipant"
-        app:layout_constraintHorizontal_bias="0.325"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
-
-    <TextView
-        android:id="@+id/tvAccessibility"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Accessibility: "
-        android:textColor="#F4F4F4"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/etParticipant"
-        app:layout_constraintHorizontal_bias="0.759"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvType" />
-
-    <EditText
-        android:id="@+id/etParticipant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="Enter the a number"
-        android:maxLines="1"
-        app:layout_constraintLeft_toRightOf="@id/tvParticipant"
-        app:layout_constraintTop_toBottomOf="@+id/randomBtn" />
-
-    <EditText
-        android:id="@+id/etPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Scale of 0 - 0.1"
-        android:maxLines="1"
-        app:layout_constraintLeft_toRightOf="@id/tvPrice"
-        app:layout_constraintTop_toBottomOf="@+id/etParticipant" />
+        app:layout_constraintTop_toBottomOf="@+id/instruction" />
 
     <Spinner
         android:id="@+id/drop_downType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="20dp"
-        android:spinnerMode="dropdown"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
         android:ems="10"
-        app:layout_constraintLeft_toRightOf="@id/tvType"
-        app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+        android:minHeight="48dp"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/minParticipant"
+        app:layout_constraintTop_toBottomOf="@+id/instruction" />
 
-    <EditText
-        android:id="@+id/etAccessibility"
+    <TextView
+        android:id="@+id/tvParticipant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Participants: "
+        android:textColor="#F4F4F4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvType" />
+
+    <EditText
+        android:id="@+id/minParticipant"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="Scale of 0 - 0.1"
-        android:maxLines="1"
-        app:layout_constraintLeft_toRightOf="@id/tvAccessibility"
-        app:layout_constraintTop_toBottomOf="@+id/drop_downType" />
+        android:hint="min"
+        android:inputType="number"
+        android:maxLength="2"
+        android:minHeight="48dp"
+        android:text="1"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvParticipant"
+        app:layout_constraintStart_toEndOf="@+id/tvParticipant"
+        app:layout_constraintTop_toBottomOf="@+id/tvType" />
+
+    <EditText
+        android:id="@+id/maxParticipant"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="max"
+        android:inputType="number"
+        android:maxLength="2"
+        android:minHeight="48dp"
+        android:text="30"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvParticipant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvType" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Price: "
+        android:textColor="#F4F4F4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvParticipant" />
+
+    <EditText
+        android:id="@+id/maxPrice"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="max"
+        android:inputType="number"
+        android:maxLength="3"
+        android:minHeight="48dp"
+        android:text="100"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvParticipant" />
+
+    <EditText
+        android:id="@+id/minPrice"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="min"
+        android:inputType="number"
+        android:maxLength="3"
+        android:minHeight="48dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/minParticipant"
+        app:layout_constraintTop_toBottomOf="@+id/tvParticipant" />
+
+
+    <TextView
+        android:id="@+id/tvAccessibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Accessibility: "
+        android:textColor="#F4F4F4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
+
+    <EditText
+        android:id="@+id/maxAccessibility"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="max"
+        android:inputType="number"
+        android:maxLength="3"
+        android:minHeight="48dp"
+        android:text="100"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvAccessibility"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
+
+    <EditText
+        android:id="@+id/minAccessibility"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="min"
+        android:inputType="number"
+        android:maxLength="3"
+        android:minHeight="48dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/minPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
 
     <Button
         android:id="@+id/submitBtn"
@@ -141,9 +201,44 @@
         android:layout_margin="40dp"
         android:text="Submit"
         android:textColor="#F4F4F4"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAccessibility" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAccessibility" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvPrice"
+        app:layout_constraintEnd_toStartOf="@+id/maxPrice"
+        app:layout_constraintStart_toEndOf="@+id/minPrice" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvAccessibility"
+        app:layout_constraintEnd_toStartOf="@+id/maxAccessibility"
+        app:layout_constraintStart_toEndOf="@+id/minAccessibility" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvParticipant"
+        app:layout_constraintEnd_toStartOf="@+id/maxParticipant"
+        app:layout_constraintStart_toEndOf="@+id/minParticipant"
+        android:textAlignment="center" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import com.example.theboringapp.R
 import com.example.theboringapp.SpinnerActivity
+import java.util.*
 
 class SearchFragment : Fragment() {
 
@@ -39,59 +40,89 @@ class SearchFragment : Fragment() {
 
         spinner.onItemSelectedListener = SpinnerActivity()
         //Set onClickListener for search submit and random buttons
-        view.findViewById<Button>(R.id.submitBtn).setOnClickListener{
-            val participants = view.findViewById<EditText>(R.id.etParticipant).text.toString()
-            val price = view.findViewById<EditText>(R.id.etPrice).text.toString()
-            val type = spinner.selectedItem.toString()
-            val accessibility = view.findViewById<EditText>(R.id.etAccessibility).text.toString()
+        view.findViewById<Button>(R.id.submitBtn).setOnClickListener {
+            val type = spinner.selectedItem.toString().lowercase(Locale.getDefault())
+            val minPart: Int
+            val maxPart: Int
+            val minPrice: Int
+            val maxPrice: Int
+            val minAccess: Int
+            val maxAccess: Int
+
+            // Get values
+            if(view.findViewById<EditText>(R.id.minParticipant).text.isNullOrBlank()) {
+                minPart = 1
+            } else {
+                minPart = view.findViewById<EditText>(R.id.minParticipant).text.toString().toInt()
+            }
+
+            if(view.findViewById<EditText>(R.id.maxParticipant).text.isNullOrBlank()) {
+                maxPart = 100
+            } else {
+                maxPart = view.findViewById<EditText>(R.id.maxParticipant).text.toString().toInt()
+            }
+
+            if(view.findViewById<EditText>(R.id.minPrice).text.isNullOrBlank()) {
+                minPrice = 0
+            } else {
+                minPrice = view.findViewById<EditText>(R.id.minPrice).text.toString().toInt()
+            }
+
+            if(view.findViewById<EditText>(R.id.maxPrice).text.isNullOrBlank()) {
+                maxPrice = 100
+            } else {
+                maxPrice = view.findViewById<EditText>(R.id.maxPrice).text.toString().toInt()
+            }
+
+            if(view.findViewById<EditText>(R.id.minAccessibility).text.isNullOrBlank()) {
+                minAccess = 0
+            } else {
+                minAccess = view.findViewById<EditText>(R.id.minAccessibility).text.toString().toInt()
+            }
+
+            if(view.findViewById<EditText>(R.id.maxAccessibility).text.isNullOrBlank()) {
+                maxAccess = 100
+            } else {
+                maxAccess = view.findViewById<EditText>(R.id.maxAccessibility).text.toString().toInt()
+            }
+
+            Log.i(TAG, "type: $type, minPart: $minPart, maxPart: $maxPart, minPrice: $minPrice, " +
+                    "maxPrice: $maxPrice, minAccess: $minAccess, maxAccess: $maxAccess")
+
+            // validate participant range
+            if(maxPart < minPart || minPart < 0 || maxPart > 30) {
+                Toast.makeText(context, "Invalid participant range", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // validate price range
+            if(maxPrice < minPrice || maxPrice > 100) {
+                Toast.makeText(context, "Invalid price range", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // validate accessibility range
+            if(maxAccess < minAccess || maxPrice > 100) {
+                Toast.makeText(context, "Invalid accessibility range", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
 
+            // Add filters
+            var filter = "?"
 
-            var hasFilter: Boolean = false
-            var filter: String = ""
-
-            if(type != "Any" && type != "") {
-                hasFilter = true
-                filter = "?"
+            if (type != "any" && type != "") {
                 filter += "type=$type"
             }
-
-            if(participants != "") {
-                if(!hasFilter) {
-                    hasFilter = true
-                    filter = "?"
-                } else {
-                    filter += "&"
-                }
-                filter += "participants=$participants"
-            }
-
-            if(price != "") {
-                if(!hasFilter) {
-                    hasFilter = true
-                    filter = "?"
-                } else {
-                    filter += "&"
-                }
-                filter += "price=$price"
-            }
-
-            if(accessibility != "") {
-                if(!hasFilter) {
-                    hasFilter = true
-                    filter = "?"
-                } else {
-                    filter += "&"
-                }
-                filter += "accessibility=$accessibility"
-            }
+            filter += "&minparticipants=$minPart"
+            filter += "&maxparticipants=$maxPart"
+            filter += "&minprice=" + (minPrice/100.0).toString()
+            filter += "&maxprice=" + (maxPrice/100.0).toString()
+            filter += "&minaccessibility=" + (minAccess/100.0).toString()
+            filter += "&maxaccessibility=" + (maxAccess/100.0).toString()
 
             Log.i("SearchFragment", filter)
             goToMainFragment(filter)
-        }
-
-        view.findViewById<Button>(R.id.randomBtn).setOnClickListener{
-            goToMainFragment("")
         }
     }
     private fun goToMainFragment(filter: String){
@@ -105,5 +136,7 @@ class SearchFragment : Fragment() {
         fragmentTransaction.commit()
     }
 
-
+    companion object {
+        const val TAG = "SearchFragment"
+    }
 }

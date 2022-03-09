@@ -10,14 +10,14 @@
 
     <string-array name="types_array">
         <item>Any</item>
-        <item>education</item>
-        <item>recreational</item>
-        <item>social</item>
-        <item>diy</item>
-        <item>charity</item>
-        <item>cooking</item>
-        <item>relaxation</item>
-        <item>music</item>
-        <item>busywork</item>
+        <item>Education</item>
+        <item>Recreational</item>
+        <item>Social</item>
+        <item>DIY</item>
+        <item>Charity</item>
+        <item>Cooking</item>
+        <item>Relaxation</item>
+        <item>Music</item>
+        <item>Busywork</item>
     </string-array>
 </resources>
