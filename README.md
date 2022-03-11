@@ -52,10 +52,9 @@ Mobile app for planning events that cater to the needs, budgets, and availabilit
 - [X] User can enter a type of activity they are interested in and get a list of related activities in that category
 - [X] Users can add activities to database
 - [X] Users can get a random activity
-- [ ] Ability to see your friends' searched activities
+- [X] Users use a dropdown menu to find type of activity
+- [X] Users can choose between a range of numbers for participants, price, and accessibility of activity
 - [X] Users should have a profile that shows
-    - [ ] Preferred activity type
-    - [ ] Preferred price range
 
 ### 2. Screen Archetypes
 
